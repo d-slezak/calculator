@@ -46,9 +46,11 @@ function displayNum(x)
 
 function chooseOperator(newOperator)
 {
-
     if (equationDisplay.textContent == "") {
         firstNum = inputDisplay.textContent;
+    }
+    else if (operator == '='){
+        equationDisplay.textContent += ` ${newOperator}`;
     }
     else {
         firstNum = operate(Number(firstNum), Number(inputDisplay.textContent));
@@ -56,7 +58,13 @@ function chooseOperator(newOperator)
 
     operator = newOperator;
 
-    equationDisplay.textContent = `${firstNum} ${operator}`;
+    if (operator == '='){
+        equationDisplay.textContent = `${firstNum}`;
+    }
+    else {
+        equationDisplay.textContent = `${firstNum} ${operator}`;
+    }
+
     inputDisplay.textContent = 0;
 }
 
