@@ -68,8 +68,18 @@ function chooseOperator(newOperator)
     inputDisplay.textContent = 0;
 }
 
+function clearDisplay(){
+    operator = "";
+    firstNum = 0;
+    inputDisplay.textContent = firstNum;
+    equationDisplay.textContent = "";
+}
+
 const numButtons = document.querySelectorAll('.num');
 numButtons.forEach(btn => btn.addEventListener('click' , () => {displayNum(btn.textContent)}));
 
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(btn => btn.addEventListener('click', () => chooseOperator(btn.textContent)));
+
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', () => clearDisplay());
